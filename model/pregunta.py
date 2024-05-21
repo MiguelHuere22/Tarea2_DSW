@@ -5,10 +5,10 @@ from dataclasses import dataclass
 class Pregunta(db.Model):
     id_pregunta: int = db.Column(db.Integer, primary_key=True)
     texto: str = db.Column(db.Text, nullable=False)
-    area_id: int = db.Column(db.Integer, db.ForeignKey('area.id_area'), nullable=False)
-    test_id: int = db.Column(db.Integer, db.ForeignKey('test.id_test'), nullable=False)
+    id_area: int = db.Column(db.Integer, db.ForeignKey('area.id_area'), nullable=False)
+    id_test: int = db.Column(db.Integer, db.ForeignKey('test.id_test'), nullable=False)
 
-    def __init__(self, texto, area_id, test_id):
+    def __init__(self, texto, id_area, id_test):
         self.texto = texto
-        self.area_id = area_id
-        self.test_id = test_id
+        self.id_area = id_area
+        self.id_test = id_test
